@@ -220,25 +220,29 @@ namespace ReestrLab1
         }
 
         private async void move1(List<int> listTask) 
-        {   
+        {
+            await Task.Delay(3000);
             foreach (int floor in listTask.ToArray())
             {
-                await Task.Delay(150);
+               
                 await miniLift1.MovementBetweenFloors(floor);
                 label1.Text = floor.ToString();
                 listTask.Remove(floor);
+                Drawing_queue(label20, listTask);
+
             }
         }
 
         private async void move2(List<int> listTask)
         {
+            await Task.Delay(3000);
             foreach (int floor in listTask.ToArray())
             {
-
-                await Task.Delay(150);
                 await miniLift2.MovementBetweenFloors(floor);
                 label2.Text = floor.ToString();
                 listTask.Remove(floor);
+                Drawing_queue(label9, listTask);
+
             }
         }
 
@@ -281,6 +285,15 @@ namespace ReestrLab1
             }
         }
 
+
+        private void Drawing_queue(Label label, List<int> listTask) 
+        {
+            label.Text = "";
+            foreach (int floor in listTask.ToArray())
+            {
+                label.Text += floor.ToString();
+            }
+        }
 
     }
 

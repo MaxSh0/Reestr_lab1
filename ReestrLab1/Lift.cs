@@ -62,7 +62,7 @@ namespace ReestrLab1
                 Timer timer = new Timer();
                 timer.Interval = 30; // каждые 30 миллисекунд
                 int count = 0;
-                int max = 10;
+                int max = 50;
                 timer.Tick += new EventHandler((o, ev) =>
                 {
 
